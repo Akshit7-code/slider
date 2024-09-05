@@ -1,0 +1,1654 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>slides showcase</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+
+    <!------------- first slide css starts here ----------------->
+    <style>
+        #section3 {
+            width: 100vw;
+            height: 100vh;
+            margin-top: 10%;
+            font-family: 'Poppins';
+            font-weight: 500;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        header a {
+            color: #eee;
+            margin-right: 40px;
+        }
+
+        /* carousel */
+        .carousel-container {
+            height: 100%;
+            /* margin-top: -50px; */
+            width: 100%;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .carousel-container .m-list .item-box {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            inset: 0 0 0 0;
+        }
+
+        .carousel-container .m-list .item-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .carousel-container .m-list .item-box .content-card {
+            position: absolute;
+            top: 20%;
+            width: 1140px;
+            max-width: 80%;
+            left: 50%;
+            transform: translateX(-50%);
+            padding-right: 30%;
+            box-sizing: border-box;
+            color: #fff;
+            text-shadow: 0 5px 10px #0004;
+        }
+
+        .carousel-container .m-list .item-box .author {
+            font-weight: bold;
+            letter-spacing: 10px;
+        }
+
+        .carousel-container .m-list.item-box .title,
+        .carousel-container .m-list .item-box .topic {
+            font-size: 5em;
+            font-weight: bold;
+            line-height: 1.3em;
+            font-weight: 500;
+        }
+
+        .carousel-container .m-list .item-box .topic {
+            color: #f1683a;
+            font-weight: 400;
+        }
+
+        .carousel-container .m-list .item-box .buttons {
+            display: grid;
+            grid-template-columns: repeat(2, 130px);
+            grid-template-rows: 40px;
+            gap: 5px;
+            margin-top: 20px;
+            font-weight: 400;
+        }
+
+        .carousel-container .m-list .item-box .buttons button {
+            border: none;
+            background-color: #eb4b16;
+            letter-spacing: 3px;
+            font-family: Poppins;
+            font-weight: 500;
+        }
+
+        .carousel-container .m-list .item-box .buttons button:nth-child(2) {
+            background-color: transparent;
+            border: 1px solid #fff;
+            color: #eee;
+        }
+
+        /* thumbail */
+        .thumbnail {
+            position: absolute;
+            bottom: 50px;
+            left: 50%;
+            width: max-content;
+            z-index: 100;
+            display: flex;
+            gap: 20px;
+        }
+
+        .thumbnail .item-box {
+            width: 150px;
+            height: 220px;
+            flex-shrink: 0;
+            position: relative;
+        }
+
+        .thumbnail .item-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 20px;
+        }
+
+        .thumbnail .item-box .content-card {
+            color: #fff;
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            right: 10px;
+        }
+
+        .thumbnail .item-box .content-card .title {
+            font-weight: 500;
+        }
+
+        .thumbnail .item-box .content-card .description {
+            font-weight: 300;
+        }
+
+        /* arrows */
+        .arrows {
+            position: absolute;
+            top: 80%;
+            right: 52%;
+            z-index: 100;
+            width: 300px;
+            max-width: 30%;
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .arrows button {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: #eee4;
+            border: none;
+            color: #fff;
+            font-family: monospace;
+            font-weight: bold;
+            transition: .5s;
+        }
+
+        .arrows button:hover {
+            background-color: #fff;
+            color: #000;
+        }
+
+        /* animation */
+        .carousel-container .m-list .item-box:nth-child(1) {
+            z-index: 1;
+        }
+
+        /* animation text in first item */
+
+        .carousel-container .m-list .item-box:nth-child(1) .content-card .author,
+        .carousel-container .m-list .item-box:nth-child(1) .content-card .title,
+        .carousel-container .m-list .item-box:nth-child(1) .content-card .topic,
+        .carousel-container .m-list .item-box:nth-child(1) .content-card .des,
+        .carousel-container .m-list .item-box:nth-child(1) .content-card .buttons {
+            transform: translateY(50px);
+            filter: blur(20px);
+            opacity: 0;
+            animation: showContent .5s 1s linear 1 forwards;
+        }
+
+        @keyframes showContent {
+            to {
+                transform: translateY(0px);
+                filter: blur(0px);
+                opacity: 1;
+            }
+        }
+
+        .carousel-container .m-list .item-box:nth-child(1) .content-card .title {
+            animation-delay: 1.2s !important;
+        }
+
+        .carousel-container.m-list .item-box:nth-child(1) .content-card .topic {
+            animation-delay: 1.4s !important;
+        }
+
+        .carousel-container .m-list .item-box:nth-child(1) .content-card .des {
+            animation-delay: 1.6s !important;
+        }
+
+        .carousel-container .m-list .item-box:nth-child(1) .content-card .buttons {
+            animation-delay: 1.8s !important;
+        }
+
+        /* create animation when next click */
+        .carousel-container.next .m-list .item-box:nth-child(1) img {
+            width: 150px;
+            height: 220px;
+            position: absolute;
+            bottom: 50px;
+            left: 50%;
+            border-radius: 30px;
+            animation: showImage .5s linear 1 forwards;
+        }
+
+        @keyframes showImage {
+            to {
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                border-radius: 0;
+            }
+        }
+
+        .carousel-container.next .thumbnail .item-box:nth-last-child(1) {
+            overflow: hidden;
+            animation: showThumbnail .5s linear 1 forwards;
+        }
+
+        .carousel-container.prev .m-list .item-box img {
+            z-index: 100;
+        }
+
+        @keyframes showThumbnail {
+            from {
+                width: 0;
+                opacity: 0;
+            }
+        }
+
+        .carousel-container.next .thumbnail {
+            animation: effectNext .5s linear 1 forwards;
+        }
+
+        @keyframes effectNext {
+            from {
+                transform: translateX(150px);
+            }
+        }
+
+        /* running time */
+
+        .carousel-container .time {
+            position: absolute;
+            z-index: 1000;
+            width: 0%;
+            height: 3px;
+            background-color: #f1683a;
+            left: 0;
+            top: 0;
+        }
+
+        .carousel-container.next .time,
+        .carousel-container.prev .time {
+            animation: runningTime 3s linear 1 forwards;
+        }
+
+        @keyframes runningTime {
+            from {
+                width: 100%
+            }
+
+            to {
+                width: 0
+            }
+        }
+
+
+        /* prev click */
+        .carousel-container.prev .m-list .item-box:nth-child(2) {
+            z-index: 2;
+        }
+
+        .carousel-container.prev .m-list .item-box:nth-child(2) img {
+            animation: outFrame 0.5s linear 1 forwards;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+        }
+
+        @keyframes outFrame {
+            to {
+                width: 150px;
+                height: 220px;
+                bottom: 50px;
+                left: 50%;
+                border-radius: 20px;
+            }
+        }
+
+        .carousel-container.prev .thumbnail .item-box:nth-child(1) {
+            overflow: hidden;
+            opacity: 0;
+            animation: showThumbnail .5s linear 1 forwards;
+        }
+
+        .carousel-container.next .arrows button,
+        .carousel-container.prev .arrows button {
+            pointer-events: none;
+        }
+
+        .carousel-container.prev .m-list .item-box:nth-child(2) .content-card .author,
+        .carousel-container.prev .m-list .item-box:nth-child(2) .content-card .title,
+        .carousel-container.prev .m-list .item-box:nth-child(2) .content-card .topic,
+        .carousel-container.prev .m-list .item-box:nth-child(2) .content-card .des,
+        .carousel-container.prev .m-list .item-box:nth-child(2) .content-card .buttons {
+            animation: contentOut 1.5s linear 1 forwards !important;
+        }
+
+        @keyframes contentOut {
+            to {
+                transform: translateY(-150px);
+                filter: blur(20px);
+                opacity: 0;
+            }
+        }
+
+        @media screen and (max-width: 678px) {
+            .carousel-container .m-list .item-box .content-card {
+                padding-right: 0;
+            }
+
+            .carousel-container .m-list .item-box .content-card .title {
+                font-size: 30px;
+            }
+        }
+    </style>
+    <!---------------- first slide ends here ---------------->
+
+
+    <!---------------- second slide css starts here ---------------->
+    <style>
+        @import url('https://fonts.cdnfonts.com/css/bebas-neue');
+        @import url('https://fonts.cdnfonts.com/css/poppins');
+
+        /* 1200 x 780 */
+        #section4 {
+            width: 100vw;
+            height: 100vh;
+            margin-top: 10%;
+            font-family: 'Poppins';
+        }
+
+        :root {
+            --width-default: min(1200px, 90vw);
+            --diameter: 1432px;
+        }
+
+        .slider-box {
+            /* background-color: red; */
+            color: #eee;
+            width: 100%;
+            height: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .slider-box .main-list .d-item {
+            position: absolute;
+            inset: 0 0 0 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: 1s;
+        }
+
+        .slider-box .main-list .d-item .content-box {
+            position: absolute;
+            top: 20%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: max-content;
+            max-width: 100%;
+            text-align: center;
+            display: grid;
+            grid-template-columns: repeat(2, 400px);
+            text-align: left;
+            gap: 80px;
+            font-size: 1.2em;
+            text-transform: uppercase;
+            font-family: Poppins;
+            text-shadow: 0 0 80px #000;
+        }
+
+        .slider-box .main-list .d-item .content-box h2 {
+            font-size: 7em;
+            font-family: 'Poppins', sans-serif;
+            line-height: 0.9em;
+            transform: translateY(-100%);
+            transition: transform 1s;
+            grid-row-start: 1;
+            grid-row-end: 3;
+            letter-spacing: 15px;
+        }
+
+        .slider-box .main-list .d-item .content-box p {
+            font-size: 20px;
+            font-family: 'Poppins';
+        }
+
+        .slider-box .main-list .item .content p:last-child {
+            display: flex;
+            justify-content: start;
+            align-items: end;
+            padding-bottom: 20px;
+        }
+
+        /* item default */
+        .slider-box .main-list .d-item .image {
+            flex-shrink: 0;
+            width: var(--diameter);
+            height: var(--diameter);
+            background-image: var(--url);
+            background-size: var(--diameter) var(--diameter);
+            background-position: center;
+            border-radius: 50%;
+            transform: rotate(-60deg);
+            position: relative;
+            transition: 1s;
+        }
+
+        #prev-icon i {
+            color: white;
+            font-size: 25px;
+        }
+
+        #next-icon i {
+            color: white;
+            font-size: 25px;
+        }
+
+        .slider-box .main-list .d-item .image::before,
+        .slider-box .main-list .d-item .image::after {
+            position: absolute;
+            width: 50%;
+            height: 50%;
+            content: '';
+            border-radius: 50%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(-120deg);
+            background-image: linear-gradient(to right, #0004, #0004), var(--url);
+            background-size: var(--diameter) var(--diameter);
+            background-position: center;
+            transition: 1s;
+        }
+
+        .slider-box .main-list .d-item .image::after {
+            width: 30%;
+            height: 30%;
+            background-image: var(--url);
+            border: 3px solid #fff2;
+            transform: translate(-50%, -50%) rotate(-170deg);
+        }
+
+        /* default  */
+        .slider-box .main-list .d-item .image {
+            filter: blur(20px);
+        }
+
+        .slider-box .main-list .d-item {
+            pointer-events: none;
+            opacity: 0;
+        }
+
+        /* item active */
+        .slider-box .main-list .d-item.active {
+            pointer-events: auto;
+            opacity: 1;
+        }
+
+        .slider-box .d-item.active .image {
+            filter: blur(0px);
+            transform: rotate(0deg);
+            object-fit: cover;
+        }
+
+        .slider-box .d-item.active .image::before,
+        .slider-box .d-item.active .image::after {
+            transform: translate(-50%, -50%) rotate(0deg);
+        }
+
+        .slider-box .main-list .d-item.active .content-box h2 {
+            transform: translateY(0);
+            font-family: 'Poppins';
+        }
+
+        /* item phía sau */
+        .slider-box .main-list .d-item.active~.item {
+            opacity: 0;
+        }
+
+        .slider-box .item.active~.d-item .image {
+            transform: rotate(45deg);
+        }
+
+        .slider-box .item.active~.d-item .image::before {
+            transform: translate(-50%, -50%) rotate(1800deg);
+        }
+
+        .slider-box .item.active~.d-item .image::after {
+            transform: translate(-50%, -50%) rotate(170deg);
+        }
+
+        .slider-box .main-list .item.active~.d-item .content-box h2 {
+            transform: translateY(100%);
+        }
+
+        /* arrows */
+        .arrows-icon {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: 30px;
+            width: var(--width-default);
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .arrows-icon button {
+            all: unset;
+            cursor: pointer;
+        }
+
+        .slider-box .main-list::after {
+            position: absolute;
+            content: '';
+            bottom: 0;
+            width: min(1000px, 100vw);
+            height: 50%;
+            left: 50%;
+            transform: translateX(-50%);
+            background-image: url(img/model.png);
+            background-size: cover;
+            background-position: top;
+            pointer-events: none;
+            animation: showModel 1s ease-in-out 1 forwards;
+        }
+
+        @keyframes showModel {
+            from {
+                transform: translateX(-50%) scale(1.3) translateY(88px);
+            }
+        }
+
+        .arrows-icon button.d-none {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        @media all and (max-width: 1024px) {
+            .slider-box .main-list .d-item .content-box {
+                grid-template-columns: repeat(2, 300px);
+            }
+
+            .slider-box .main-list .d-item .content-box h2 {
+                font-size: 8em;
+            }
+        }
+
+        @media all and (max-width: 767px) {
+            .slider-box .main-list .d-item .content-box {
+                grid-template-columns: 80%;
+                justify-content: center;
+                gap: 20px;
+                top: 70px;
+            }
+
+            .slider-box .main-list .d-item .content-box h2 {
+                font-size: 4em;
+            }
+
+            .slider-box .main-list .d-item .content-box p {
+                font-size: small;
+            }
+        }
+    </style>
+    <!---------------- second slide css ends here ---------------->
+
+
+    <!---------------- third slide css starts here -------------- -->
+    <style>
+        .section5 {
+            /* display: flex;
+            align-items: center;
+            justify-content: center; */
+            min-height: 100vh;
+            margin-top: 10%;
+            /* padding: 0 35px;
+            background-color: #112232;
+            box-sizing: border-box;
+            /* margin-top: 5%; */
+        }
+
+        .wrapper-main {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin-top: 3%;
+            padding: 0 35px;
+            background-color: #112232;
+            box-sizing: border-box;
+            /* margin-top: 5%; */
+            font-family: "poppins", sans-serif;
+
+        }
+
+        .wrapper {
+            /* border: 2px solid yellow; */
+            max-width: 1080px;
+
+            position: relative;
+        }
+
+        .wrapper i {
+            height: 50px;
+            width: 50px;
+            background: #ffffff4d;
+            /* color: white; */
+            color: #ffffff;
+            text-align: center;
+            line-height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            font-size: 2.25rem;
+            transform: translateY(-50%);
+            /* box-shadow: 0 3px 6px rgba(0, 0, 0, 0.23); */
+        }
+
+        .wrapper i:first-child {
+            left: -75px;
+        }
+
+        .wrapper i:last-child {
+            right: -50px;
+        }
+
+        .wrapper .carousel {
+            /* border: 2px solid white; */
+            display: grid;
+            grid-auto-flow: column;
+            grid-auto-columns: calc((100% / 3) - 12px);
+            gap: 16px;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            scroll-behavior: smooth;
+            scrollbar-width: 0;
+        }
+
+        .carousel::-webkit-scrollbar {
+            display: none;
+        }
+
+        /* extra */
+        .carousel :where(.card, .img) {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .carousel.no-transition {
+            scroll-behavior: auto;
+        }
+
+        .carousel .dragging {
+            scroll-snap-type: none;
+            scroll-behavior: auto;
+        }
+
+        /* extra */
+        .carousel .dragging .card {
+            cursor: grab;
+            user-select: none;
+        }
+
+        .carousel .card {
+            scroll-snap-align: start;
+            /* height: 342px; */
+            height: 525px;
+            list-style: none;
+            /* background-color: rgb(212, 173, 30); */
+            background-color: #FBD085;
+            border-radius: 8px;
+            cursor: pointer;
+            display: flex;
+            padding-bottom: 15px;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            border-radius: 20px;
+            /* border: 2px solid white; */
+            margin-right: 20px;
+        }
+
+        .card .img {
+            /* background: yellow; */
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+        }
+
+        .card .img img {
+            width: 220px;
+            height: 230px;
+            margin-bottom: 60px;
+            object-fit: cover;
+            border-radius: 50%;
+            /* box-shadow:  */
+            /* border: 4px solid #fff; */
+            filter: drop-shadow(10px 10px 60px #ff8f05);
+            z-index: 0;
+        }
+
+        /* ? */
+        .card .box {
+            width: 100%;
+            background-color: #172A3F;
+            height: 32vh;
+            margin-bottom: -100px;
+            /* border-top-right-radius: 20px;
+    border-top-left-radius: 20px; */
+            border-radius: 20px;
+            text-align: center;
+            z-index: 1;
+        }
+
+        /*  */
+        .card h2 {
+            font-weight: 600;
+            font-size: 19px;
+            margin: 20px 0 5px;
+            /* color: #3083AE; */
+            color: #1ea6e9;
+
+        }
+
+        .card h3 {
+            font-size: 17px;
+            color: #fff;
+            font-weight: 300;
+            margin-top: 20px;
+        }
+
+        /* .card span{
+    color: #fff;
+    font-size: 18px;
+} */
+        .card button {
+            width: 120px;
+            height: 45px;
+            background-color: #DF9622;
+            /* margin-top: 20px; */
+            outline: none;
+            border: none;
+            color: black;
+            font-size: 17px;
+            border-radius: 5px;
+            font-weight: 600;
+        }
+
+        @media screen and (max-width: 900px) {
+            .wrapper .carousel {
+                grid-auto-columns: calc((100% / 2)- 9px);
+            }
+
+
+        }
+
+        @media screen and (max-width: 600px) {
+            .wrapper .carousel {
+                grid-auto-columns: 50%;
+            }
+
+
+        }
+    </style>
+    <!---------------- third slide css ends here  ---------------->
+
+
+    <!---------------- fourth slide css starts here -------------- -->
+    <style>
+        @import url('https://fonts.cdnfonts.com/css/ica-rubrik-black');
+        @import url('https://fonts.cdnfonts.com/css/poppins');
+
+        #section6 {
+            background-color: #D2D2D2;
+            background-image:
+                repeating-linear-gradient(to right, transparent 0 100px,
+                    #25283b22 100px 101px),
+                repeating-linear-gradient(to bottom, transparent 0 100px,
+                    #25283b22 100px 101px);
+        }
+
+        body::before {
+            position: absolute;
+            width: min(1100px, 90vw);
+            top: 10%;
+            left: 50%;
+            height: 90%;
+            transform: translateX(-50%);
+            content: '';
+            background-image: url(bg.png);
+            background-size: 100%;
+            background-repeat: no-repeat;
+            background-position: top center;
+            pointer-events: none;
+        }
+
+        .banner {
+            width: 100%;
+            height: 100vh;
+            text-align: center;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .banner .slider {
+            position: absolute;
+            width: 200px;
+            height: 250px;
+            top: 10%;
+            left: calc(50% - 100px);
+            transform-style: preserve-3d;
+            transform: perspective(1000px);
+            animation: autoRun 20s linear infinite;
+            z-index: 2;
+        }
+
+        @keyframes autoRun {
+            from {
+                transform: perspective(1000px) rotateX(-16deg) rotateY(0deg);
+            }
+
+            to {
+                transform: perspective(1000px) rotateX(-16deg) rotateY(360deg);
+            }
+        }
+
+        .banner .slider .image-item {
+            position: absolute;
+            inset: 0 0 0 0;
+            transform:
+                rotateY(calc((var(--position) - 1) * (360 / var(--quantity)) * 1deg)) translateZ(550px);
+        }
+
+        .banner .slider .image-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .banner .content-box {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: min(1400px, 100vw);
+            height: max-content;
+            padding-bottom: 100px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1;
+        }
+
+        .banner .content-box h1 {
+            font-family: 'ICA Rubrik';
+            font-size: 16em;
+            line-height: 1em;
+            color: #2d3883;
+            position: relative;
+        }
+
+        .banner .content-box h1::after {
+            position: absolute;
+            inset: 0 0 0 0;
+            content: attr(data-content);
+            z-index: 2;
+            -webkit-text-stroke: 2px #d2d2d2;
+            color: transparent;
+        }
+
+        .banner .content-box .developer {
+            font-family: Poppins;
+            text-align: right;
+            max-width: 200px;
+        }
+
+        .banner .content-box h2 {
+            font-size: 3em;
+        }
+
+        .banner .content-box .model {
+            background-image: url(robot2.png);
+            width: 100%;
+            height: 75vh;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            background-size: auto 130%;
+            background-repeat: no-repeat;
+            background-position: top center;
+            z-index: 1;
+        }
+
+        @media screen and (max-width: 1023px) {
+            .banner .slider {
+                width: 160px;
+                height: 200px;
+                left: calc(50% - 80px);
+            }
+
+            .banner .slider .image-item {
+                transform:
+                    rotateY(calc((var(--position) - 1) * (360 / var(--quantity)) * 1deg)) translateZ(300px);
+            }
+
+            .banner .content-box h1 {
+                text-align: center;
+                width: 100%;
+                text-shadow: 0 10px 20px #000;
+                font-size: 7em;
+            }
+
+            .banner .content-box .developer {
+                color: #fff;
+                padding: 20px;
+                text-shadow: 0 10px 20px #000;
+                z-index: 2;
+                max-width: unset;
+                width: 100%;
+                text-align: center;
+                padding: 0 30px;
+            }
+        }
+
+        @media screen and (max-width: 767px) {
+            .banner .slider {
+                width: 100px;
+                height: 150px;
+                left: calc(50% - 50px);
+            }
+
+            .banner .slider .image-item {
+                transform:
+                    rotateY(calc((var(--position) - 1) * (360 / var(--quantity)) * 1deg)) translateZ(180px);
+            }
+
+            .banner .content-box h1 {
+                font-size: 5em;
+            }
+        }
+    </style>
+    <!---------------- fourth slide css ends here -------------- -->
+
+</head>
+
+<body>
+
+    <!---------------- main html page code -------------- -->
+    <header id="header-area">
+        <!-- <div class="line" style="width: 100px;height: 10px; background-color: red;"></div> -->
+        <nav class="nav-bar">
+            <h1 id="heading">slider <span style="color: #f54c14;">Mania</span></h1>
+            <div class="nav-link">
+                <a href="#header-area">Home</a>
+                <a href="#section6">sliders</a>
+                <a href="#">About</a>
+            </div>
+        </nav>
+        <div class="contain-body">
+            <h1>Welcome to Our Slider Mania</h1>
+            <p>It is a world of sliders where you find different types of sliders.<br> come and Explore our collection
+                of stunning sliders.</p>
+            <div class="button">
+                <button class="btn">Read More</button>        
+            </div>
+        </div>
+    </header>
+
+    <section id="section2-part">
+        <div class="img">
+            <div class="img-slider">
+                <!-- <img src="https://unsplash.com/photos/a-man-holding-a-camera-in-his-hands-_zpj6jT5s5A"> -->
+                <img
+                    src="https://cdn.pixabay.com/photo/2024/01/07/11/17/welsh-corgi-8492879_640.jpg">
+                <img
+                    src="https://cdn.pixabay.com/photo/2024/01/03/19/37/photography-8486085_640.jpg">
+                <img
+                    src="https://cdn.pixabay.com/photo/2018/07/20/13/52/sunflower-3550693_640.jpg">
+                <img
+                    src="https://images.unsplash.com/photo-1724884564497-f5024b7e2f93?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHx0b3BpYy1mZWVkfDR8SnBnNktpZGwtSGt8fGVufDB8fHx8fA%3D%3D">
+                <img
+                    src="https://images.unsplash.com/photo-1724995754270-0496ad539fd8?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHx0b3BpYy1mZWVkfDV8Xzh6Rkh1aFJoeW98fGVufDB8fHx8fA%3D%3D">
+                <img
+                    src="https://images.unsplash.com/photo-1682687982141-0143020ed57a?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHx0b3BpYy1mZWVkfDE5fHRvd0paRnNrcEdnfHxlbnwwfHx8fHw%3D">
+            </div>
+        </div>
+    </section>
+
+    <!----------------- main html page ends ----------------- -->
+
+
+
+    <!---------------- fourth slide starts here  -------------- -->
+    <section id="section6">
+        <div class="banner">
+            <div class="slider" style="--quantity: 10">
+                <div class="image-item" style="--position: 1"><img src="image2/di1.image.jpg" alt="" id="im1"></div>
+                <div class="image-item" style="--position: 2"><img src="image2/di2.image.jpg" alt="" id="im2"></div>
+                <div class="image-item" style="--position: 3"><img src="image2/di3.image.jpg" alt="" id="im3"></div>
+                <div class="image-item" style="--position: 4"><img src="image2/di4.image.jpg" alt="" id="im4"></div>
+                <div class="image-item" style="--position: 5"><img src="image2/di5.image.jpg" alt="" id="im5"></div>
+                <div class="image-item" style="--position: 6"><img src="image2/di6.image.jpg" alt="" id="im6"></div>
+                <div class="image-item" style="--position: 7"><img src="image2/di7.image.jpg" alt="" id="im7"></div>
+                <div class="image-item" style="--position: 8"><img src="image2/di8.image.jpg" alt="" id="im8"></div>
+                <div class="image-item" style="--position: 9"><img src="image2/di9.image.jpg" alt="" id="im9"></div>
+                <div class="image-item" style="--position: 10"><img src="image2/di10.image.jpg" alt="" id="im10"></div>
+            </div>
+            <div class="content-box">
+                <h1 data-content="CSS ONLY">
+                    CSS ONLY
+                </h1>
+                <div class="developer">
+                    <h2>QUICK DEV</h2>
+                    <p><b>Web Design And Developer</b></p>
+                    <p>
+                        Subscribe to the channel to watch many interesting videos thankyou
+                    </p>
+                </div>
+                <div class="model"></div>
+            </div>
+        </div>
+    </section>
+    <!---------------- fourth slide ends here ---------------->
+
+
+    <!---------------- first slider starts here  ---------------->
+    <section id="section3">
+        <div class="carousel-container">
+
+            <div class="m-list">
+                <div class="item-box">
+                    <img src="image/tiger.image.jpg" id="anim1">
+                    <div class="content-card">
+                        <div class="author">LUNDEV ANIMAL PARK</div>
+                        <div class="title">ATRACTIVE DESIGN SLIDER</div>
+                        <div class="topic">ANIMAL PARK</div>
+                        <div class="des">
+                            A safari park, sometimes known as a wildlife park, is a zoo-like commercial drive-in tourist
+                            attraction where visitors can drive their own vehicles or ride in vehicles provided by the
+                            facility to observe freely roaming animals. A safari park is larger than a zoo and smaller
+                            than
+                            a game reserve.</div>
+                        <div class="buttons">
+                            <button>SEE MORE</button>
+                            <button>SUBSCRIBE</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="item-box">
+                    <img src="image/lightbulf.image.avif" id="anim2">
+                    <div class="content-card">
+                        <div class="author">LUNDEV ANIMAL PARK</div>
+                        <div class="title">ATRACTIVE DESIGN SLIDER</div>
+                        <div class="topic">ANIMAL PARK</div>
+                        <div class="des">
+                            A safari park, sometimes known as a wildlife park, is a zoo-like commercial drive-in tourist
+                            attraction where visitors can drive their own vehicles or ride in vehicles provided by the
+                            facility to observe freely roaming animals. A safari park is larger than a zoo and smaller
+                            than
+                            a game reserve.
+                        </div>
+                        <div class="buttons">
+                            <button>SEE MORE</button>
+                            <button>SUBSCRIBE</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="item-box">
+                    <img src="image/og1.image.jpg" id="anim3">
+                    <div class="content-card">
+                        <div class="author">LUNDEV ANIMAL PARK</div>
+                        <div class="title">ATRACTIVE DESIGN SLIDER</div>
+                        <div class="topic">ANIMAL PARK</div>
+                        <div class="des">
+                            A safari park, sometimes known as a wildlife park, is a zoo-like commercial drive-in tourist
+                            attraction where visitors can drive their own vehicles or ride in vehicles provided by the
+                            facility to observe freely roaming animals. A safari park is larger than a zoo and smaller
+                            than
+                            a game reserve.
+                        </div>
+                        <div class="buttons">
+                            <button>SEE MORE</button>
+                            <button>SUBSCRIBE</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="item-box">
+                    <img src="image/og2.image.jpg" id="anim4">
+                    <div class="content-card">
+                        <div class="author">LUNDEV ANIMAL PARK</div>
+                        <div class="title">ATRACTIVE DESIGN SLIDER</div>
+                        <div class="topic">ANIMAL PARK</div>
+                        <div class="des">
+                            A safari park, sometimes known as a wildlife park, is a zoo-like commercial drive-in tourist
+                            attraction where visitors can drive their own vehicles or ride in vehicles provided by the
+                            facility to observe freely roaming animals. A safari park is larger than a zoo and smaller
+                            than
+                            a game reserve.
+                        </div>
+                        <div class="buttons">
+                            <button>SEE MORE</button>
+                            <button>SUBSCRIBE</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="thumbnail">
+                <div class="item-box">
+                    <img src="image/tiger.image.jpg" id="anim5">
+                    <div class="content-card">
+                        <div class="title">
+                            Name Slider
+                        </div>
+                        <div class="description">
+                            Description
+                        </div>
+                    </div>
+                </div>
+                <div class="item-box">
+                    <img src="image/lightbulf.image.avif" id="anim6">
+                    <div class="content-card">
+                        <div class="title">
+                            Name Slider
+                        </div>
+                        <div class="description">
+                            Description
+                        </div>
+                    </div>
+                </div>
+                <div class="item-box">
+                    <img src="image/og1.image.jpg" id="anim7">
+                    <div class="content-card">
+                        <div class="title">
+                            Name Slider
+                        </div>
+                        <div class="description">
+                            Description
+                        </div>
+                    </div>
+                </div>
+                <div class="item-box">
+                    <img src="image/og2.image.jpg" id="anim8">
+                    <div class="content-card">
+                        <div class="title">
+                            Name Slider
+                        </div>
+                        <div class="description">
+                            Description
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="arrows">
+                <button id="prev">
+                    < </button>
+                        <button id="next">></button>
+            </div>
+            <div class="time"></div>
+        </div>
+    </section>
+    <!---------------- first slider ends here -------------- -->
+
+
+
+    <!---------------- second slider starts here  ---------------->
+    <section id="section4">
+
+        <div class="slider-box" id="active1">
+            <div class="main-list">
+                <div class="d-item active">
+                    <div class="image" id="image1" style="--url: url('img2/11.jpg') width: 100% height:100%"></div>
+                    <div class="content-box">
+                        <h2>MAGIC IMAGE SLIDER</h2>
+                        <p>
+                            This is a demonstration of how different stylesheets can change the layout of your HTML
+                            page.
+                        </p>
+                        <p>
+                            CSS is the language we use to style a Web page.
+                        </p>
+                    </div>
+                </div>
+                <div class="d-item ">
+                    <div class="image" id="image2" style="--url:url('img2/1.jpg') width: 100% height:100%"></div>
+                    <div class="content-box">
+                        <h2>MAGIC IMAGE SLIDER</h2>
+                        <p>
+                            This is a demonstration of how different stylesheets can change the layout of your HTML
+                            page.
+                        </p>
+                        <p>
+                            CSS is the language we use to style a Web page.
+                        </p>
+                    </div>
+                </div>
+                <div class="d-item">
+                    <div class="image" id="image3" style="--url: url('img2/33.jpg') width: 100% height:100%"></div>
+                    <div class="content-box">
+                        <h2>MAGIC IMAGE SLIDER</h2>
+                        <p>
+                            This is a demonstration of how different stylesheets can change the layout of your HTML
+                            page.
+                        </p>
+                        <p>
+                            CSS is the language we use to style a Web page.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="arrows-icon">
+                <button id="prev-icon">
+                    <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true"
+                        xmlns="http://www.w3.org/2000/svg" width="50" height="35" fill="none" viewBox="0 0 24 24">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M5 12h14M5 12l4-4m-4 4 4 4" />
+                    </svg>
+                    <!-- <i id="previousarrow" class="fa-solid fa-arrow-left"></i> -->
+                </button>
+                <button id="next-icon">
+                    <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true"
+                        xmlns="http://www.w3.org/2000/svg" width="50" height="35" fill="none" viewBox="0 0 24 24">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M19 12H5m14 0-4 4m4-4-4-4" />
+                    </svg>
+                    <!-- <i id="nextarrow" class="fa-solid fa-arrow-right"></i> -->
+                </button>
+            </div>
+        </div>
+    </section>
+    <!---------------- second slider starts here  ---------------->
+
+
+
+    <!---------------- third slide starts here ---------------->
+    <section class="section5">
+        </div>
+        <div class="wrapper-main">
+            <div class="wrapper">
+                <i id="left" class="fa-solid fa-angle-left">
+                    </i>
+                        <ul class="carousel">
+                            <li class="card">
+                                <div class="img"><img src="boy.image-removebg-preview (1).png" alt="img"
+                                        draggable="false">
+                                </div>
+                                <div class="box">
+                                    <h2>Sara Mir</h2>
+                                    <h3>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maxime, perferendis
+                                        reprehenderit
+                                        quae velit.</h3>
+                                    <br>
+                                    <button>view more</button>
+                                </div>
+                            </li>
+
+                            <li class="card">
+                                <div class="img"><img src="boy.image-removebg-preview (1).png" alt="img"
+                                        draggable="false">
+                                </div>
+                                <div class="box">
+                                    <h2>Jenny Wert</h2>
+                                    <h3>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maxime, perferendis
+                                        reprehenderit
+                                        quae velit.</h3>
+                                    <br>
+                                    <button>view more</button>
+                                </div>
+                            </li>
+
+
+                            <li class="card">
+                                <div class="img"><img src="boy.image-removebg-preview (1).png" alt="img"
+                                        draggable="false">
+                                </div>
+                                <div class="box">
+                                    <h2>Lexa Kim</h2>
+                                    <h3>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maxime, perferendis
+                                        reprehenderit
+                                        quae velit.</h3>
+                                    <br>
+                                    <button>view more</button>
+                                </div>
+                            </li>
+
+
+                            <li class="card">
+                                <div class="img"><img src="boy.image-removebg-preview (1).png" alt="img"
+                                        draggable="false">
+                                </div>
+                                <div class="box">
+                                    <h2>card 4</h2>
+                                    <h3>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maxime, perferendis
+                                        reprehenderit
+                                        quae velit..</h3>
+                                    <br>
+                                    <button>view more</button>
+                                </div>
+                            </li>
+
+
+                            <li class="card">
+                                <div class="img"><img src="boy.image-removebg-preview (1).png" alt="img"
+                                        draggable="false">
+                                </div>
+                                <div class="box">
+                                    <h2>card 5</h2>
+                                    <h3>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maxime, perferendis
+                                        reprehenderit
+                                        quae velit.</h3>
+                                    <br>
+                                    <button>view more</button>
+                                </div>
+                            </li>
+
+                            <li class="card">
+                                <div class="img"><img src="boy.image-removebg-preview (1).png" alt="img"
+                                        draggable="false">
+                                </div>
+                                <div class="box">
+                                    <h2>card 6</h2>
+                                    <h3>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maxime, perferendis
+                                        reprehenderit
+                                        quae velit.</h3>
+                                    <br>
+                                    <button>view more</button>
+                                </div>
+                            </li>
+                        </ul>
+                        <i id="right" class="fa-solid fa-angle-right"></i>
+
+            </div>
+        </div>
+    </section>
+    <!---------------- third slide ends here  -------------- -->
+
+
+    <!---------------- main html javascript ---------------->
+    <script>
+        let copy = document.querySelector('.img-slider').cloneNode(true);
+        document.querySelector('.img').appendChild(copy);
+    </script>
+    <!---------------- main html javascript ends---------------->
+
+
+    <!---------------- first slidejavascript starts here---------------->
+    <script>
+        //step 1: get DOM
+        let nextDom = document.getElementById('next');
+        let prevDom = document.getElementById('prev');
+
+        let carouselDom = document.querySelector('.carousel-container');
+        let SliderDom = carouselDom.querySelector('.carousel-container .m-list');
+        let thumbnailBorderDom = document.querySelector('.carousel-container .thumbnail');
+        let thumbnailItemsDom = thumbnailBorderDom.querySelectorAll('.item-box');
+        let timeDom = document.querySelector('.carousel-container .time');
+
+        thumbnailBorderDom.appendChild(thumbnailItemsDom[0]);
+        let timeRunning = 3000;
+        let timeAutoNext = 7000;
+
+        nextDom.onclick = function () {
+            showSlider('next');
+        }
+
+        prevDom.onclick = function () {
+            showSlider('prev');
+        }
+        let runTimeOut;
+        let runNextAuto = setTimeout(() => {
+            next.click();
+        }, timeAutoNext)
+        function showSlider(type) {
+            let SliderItemsDom = SliderDom.querySelectorAll('.carousel-container .m-list .item-box');
+            let thumbnailItemsDom = document.querySelectorAll('.carousel-container .thumbnail .item-box');
+
+            if (type === 'next') {
+                SliderDom.appendChild(SliderItemsDom[0]);
+                thumbnailBorderDom.appendChild(thumbnailItemsDom[0]);
+                carouselDom.classList.add('next');
+            } else {
+                SliderDom.prepend(SliderItemsDom[SliderItemsDom.length - 1]);
+                thumbnailBorderDom.prepend(thumbnailItemsDom[thumbnailItemsDom.length - 1]);
+                carouselDom.classList.add('prev');
+            }
+            clearTimeout(runTimeOut);
+            runTimeOut = setTimeout(() => {
+                carouselDom.classList.remove('next');
+                carouselDom.classList.remove('prev');
+            }, timeRunning);
+
+            clearTimeout(runNextAuto);
+            runNextAuto = setTimeout(() => {
+                next.click();
+            }, timeAutoNext)
+        }
+
+        document.getElementById('anim1').src = '7.jpg';
+        document.getElementById('anim2').src = '5.jpg';
+        document.getElementById('anim3').src = '3.jpg';
+        document.getElementById('anim4').src = '4.jpg';
+        document.getElementById('anim5').src = '7.jpg';
+        document.getElementById('anim6').src = '5.jpg';
+        document.getElementById('anim7').src = '3.jpg';
+        document.getElementById('anim8').src = '4.jpg';
+    </script>
+    <!----------------first slidejavascript end here ---------------->
+
+
+    <!---------------- second slide js starts here ---------------->
+    <script>
+        let items = document.querySelectorAll('.slider-box .main-list .d-item');
+        let prevBtn = document.getElementById('prev-icon');
+        let nextBtn = document.getElementById('next-icon');
+        let lastPosition = items.length - 1;
+        let firstPosition = 0;
+        let active = 0;
+
+        nextBtn.onclick = () => {
+            active = active + 1;
+            setSlider();
+        }
+        prevBtn.onclick = () => {
+            active = active - 1;
+            setSlider();
+        }
+        const setSlider = () => {
+            let oldActive = document.querySelector('.slider-box .main-list .d-item.active');
+            if (oldActive) oldActive.classList.remove('active');
+            items[active].classList.add('active');
+            // 
+            nextBtn.classList.remove('d-none');
+            prevBtn.classList.remove('d-none');
+            if (active == lastPosition) nextBtn.classList.add('d-none');
+            if (active == firstPosition) prevBtn.classList.add('d-none');
+
+        }
+        setSlider();
+
+        const setDiameter = () => {
+            let slider = document.querySelector('.slider-box');
+            let widthSlider = slider.offsetWidth;
+            let heightSlider = slider.offsetHeight;
+            let diameter = Math.sqrt(Math.pow(widthSlider, 2) + Math.pow(heightSlider, 2));
+            document.documentElement.style.setProperty('--diameter', diameter + 'px');
+        }
+        setDiameter();
+        window.addEventListener('resize', () => {
+            setDiameter();
+        })
+
+
+        let image1 = document.getElementById('image1')
+        let image2 = document.getElementById('image2')
+        let image3 = document.getElementById('image3')
+
+        image1.style = "--url: url('12.jpg')"
+        image2.style = "--url: url('images10.jpg')"
+        image3.style = "--url: url('images (2).jpg')"
+
+
+    </script>
+    <!---------------- second slide js end here ---------------->
+
+
+    <!---------------- third slide js starts here ---------------->
+    <script>
+        const carousel = document.querySelector(".carousel");
+        const arrowBtns = document.querySelectorAll(".wrapper i");
+        const firstCardWidth = carousel.querySelector(".card").offsetWidth;
+        const carouselChildrens = [...carousel.children];
+
+        let isDragging = false, startX, startScrollLeft;
+
+        // get the number of cards that can fit in the carousel at once
+        let cardPerView = Math.round(carousel.offsetWidth / firstCardWidth)
+
+
+        // insert copies of the few card to biginner of crousel of infinite scrolling
+        carouselChildrens.slice(-cardPerView).reverse().forEach(card => {
+            carousel.insertAdjacentHTML("afterbegin", card.outerHTML);
+
+        });
+
+        // insert copies of the few card to biginner of crousel of infinite scrolling
+        carouselChildrens.slice(0, cardPerView).forEach(card => {
+            carousel.insertAdjacentHTML("beforeend", card.outerHTML);
+
+        });
+
+
+        //add event listener for the arrow button to sroll the crousel left and right
+        arrowBtns.forEach(btn => {
+            btn.addEventListener("click", () => {
+                carousel.scrollLeft += btn.id === "left" ? -firstCardWidth : firstCardWidth;
+
+            })
+
+        });
+
+        const dragStart = (e) => {
+            isDragging = true;
+            carousel.classList.add("dragging");
+            // records the initail cruser and scroll position of the crousel
+            startX = e.pageX;
+            startScrollLeft = carousel.scrollLeft;
+        }
+
+        const dragging = (e) => {
+            if (!isDragging) return; // if isdraggingis false return from hare
+            // update the scroll position  of crouserl based on the crousel moment
+            carousel.scrollLeft = startScrollLeft - (e.pageX - startX);
+        }
+
+        const dragStop = () => {
+            isDragging = false;
+            carousel.classList.remove("dragging");
+
+        }
+
+        const infiniteScroll = () => {
+
+            if (carousel.scrollLeft === 0) {
+                carousel.classList.add("no-transition");
+                carousel.scrollLeft = carousel.scrollWidth - (2 * carousel.offsetWidth);
+                carousel.classList.remove("no-transition");
+            }
+
+            else if (Math.ceil(carousel.scrollLeft) === carousel.scrollWidth - carousel.offsetWidth) {
+                carousel.classList.add("no-transition");
+                carousel.scrollLeft = carousel.offsetWidth;
+                carousel.classList.remove("no-transition");
+
+            }
+        }
+
+
+        carousel.addEventListener("mousedown", dragStart);
+        carousel.addEventListener("mousemove", dragging);
+        document.addEventListener("mouseup", dragStop);
+        carousel.addEventListener("scroll", infiniteScroll);
+
+
+
+
+
+    </script>
+    <!---------------- third slide js starts here ---------------->
+
+
+
+    <!---------------- fourth slide js starts here ---------------->
+    <script>
+        document.getElementById("im1").src = "dragon1.jpg"
+        document.getElementById("im2").src = "dragon2.jpg"
+        document.getElementById("im3").src = "dragon3.jpg"
+        document.getElementById("im4").src = "dragon4.jpg"
+        document.getElementById("im5").src = "dragon5.jpg"
+        document.getElementById("im6").src = "dragon6.jpg"
+        document.getElementById("im7").src = "dragon7.jpg"
+        document.getElementById("im8").src = "dragon8.jpg"
+        document.getElementById("im9").src = "dragon10.jpg"
+        document.getElementById("im10").src = "dragon11.jpg"
+
+
+        let now = document.querySelectorAll(".banner .content-box .model");
+        now.style.backgroundImage = "url('robot2.png')"
+
+        // document.body.backgroundImage="url('image2/robot1.jpg')"
+        // document.body.backgroundSize="cover"
+        // document.body.backgroundPosition="center"
+
+
+
+        // function updateBeforePseudoElement() {
+        //     // Access the first stylesheet in the document
+        //     const styleSheet = document.styleSheets[0];
+
+        //     // Loop through the stylesheet's rules
+        //     for (let i = 0; i < styleSheet.cssRules.length; i++) {
+        //       const rule = styleSheet.cssRules[i];
+
+        //       // Find the rule for `body::before`
+        //       if (rule.selectorText === 'body::before') {
+        //         // Modify the CSS rule
+        //         rule.style.content = '"Updated Content"';
+        //         rule.style.body.backgroundImage = "url('image2/robot1.jpg')"
+        //         rule.style.width = '200px';
+        //         rule.style.height = '200px';
+        //         break;
+        //       }
+        // //     }
+        // //   }
+
+        //   // Call the function to update the pseudo-element
+        //   updateBeforePseudoElement();
+        // document.querySelector(".banner")="url('image2/robot2.png')"
+    </script>
+    <!---------------- fourth slide js starts here-------------- -->
+
+
+
+</body>
+
+</html>
